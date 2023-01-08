@@ -83,6 +83,57 @@
   <meta name="ahrefs-site-verification" content="a293eca783bd503e96316c016cdf909c7dc4d52223d73c9e088d06ab69d4b739">
 </head>
 <body>
+  
+  
+  <script type="module">
+
+  // Import the functions you need from the SDKs you need
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+
+  // Your web app's Firebase configuration
+
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+  const firebaseConfig = {
+
+    apiKey: "AIzaSyCNzQX7Hh313VuQATCYWEla9G57mZMfSx8",
+
+    authDomain: "ielts-coaching-db.firebaseapp.com",
+
+    projectId: "ielts-coaching-db",
+
+    storageBucket: "ielts-coaching-db.appspot.com",
+
+    messagingSenderId: "829784358227",
+
+    appId: "1:829784358227:web:49ca95c77e14618f45b5a6",
+
+    measurementId: "G-BQKXLWCK5C"
+
+  };
+
+
+  // Initialize Firebase
+
+  const app = initializeApp(firebaseConfig);
+
+  const analytics = getAnalytics(app);
+function writeData() {
+	firebase.database().ref("IELTS-Coaching-DB").set({
+		name: document.getElementById("name").value
+		});
+	}
+</script>
+  
+  
   <div class="header">
     <h1>IELTS Coaching Centre</h1>
   </div>
@@ -98,13 +149,13 @@
     <div class="card">
       <img src="teacher1.jpg" alt="Teacher 1">
       
-    <form method="post" action="{% url 'submit_contact_info' %}">
-    {% csrf_token %}
+<!--     <form method="post" action="{% url 'submit_contact_info' %}"> -->
+<!--     {% csrf_token %} -->
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name"><br>
     <label for="phone">Phone:</label><br>
     <input type="text" id="phone" name="phone"><br>
     <label for="address">Address:</label><br>
     <textarea id="address" name="address"></textarea><br><br>
-    <input type="submit" value="Submit">
-  </form> 
+    <input type="submit" value="Submit" onclick="writeData()">
+<!--   </form>  -->
