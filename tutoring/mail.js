@@ -38,7 +38,7 @@ const firebaseConfig = {
   
     //   reset the form
     document.getElementById("contactForm").reset();
-//     location.reload();
+    location.reload();
   }
   
   const saveMessages = (name, emailid, phone, msgContent) => {
